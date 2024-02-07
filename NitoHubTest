@@ -3213,7 +3213,7 @@ spawn(function()
     end
 end)
 
-local ToggleKenFarm = Tabs.Main:AddToggle("Auto Farm Observation",_G.AutoObservation,function(value)
+Tabs.Main:AddToggle("Auto Farm Observation",_G.AutoObservation,function(value)
         _G.AutoObservation = value
         StopTween(_G.AutoObservation)
     end)
