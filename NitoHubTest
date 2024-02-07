@@ -3226,7 +3226,7 @@ ToggleAutoFarmKenHop:OnChanged(function(Value)
  
     spawn(function()
         while wait() do
-            pcall(function(value)
+            pcall(function()
                 if _G.AutoObservation then
                     repeat task.wait()
                         if not game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel") then
