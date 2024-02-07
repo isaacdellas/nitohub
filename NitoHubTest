@@ -2593,6 +2593,124 @@ local posZ = 0
     end
 
 --------------------------------------------------------------------------------------------------------------------------------------------
+-- Auto Farm Observation
+	page2:Label("Auto Farm Observation")
+local ObservationVirtualUser = game:GetService('VirtualUser')
+page2:Toggle("Auto Farm Observation Haki (Ken Haki) [ Hop ]",_G.AutoFarmKenHaki,function(x)
+	ObservationVirtualUser:CaptureController()
+	ObservationVirtualUser:SetKeyDown('0x65')
+	wait(2)
+	ObservationVirtualUser:SetKeyUp('0x65')
+	_G.AutoFarmKenHaki = x
+end)
+spawn(function()
+	if _G.AutoFarmKenHaki then
+		ObservationVirtualUser:CaptureController()
+		ObservationVirtualUser:SetKeyDown('0x65')
+		wait(2)
+		ObservationVirtualUser:SetKeyUp('0x65')
+	end
+end)
+ 
+spawn(function()
+	while wait() do wait(40)
+		pcall(function()
+			if _G.AutoFarmKenHaki and not game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel") then
+				ObservationVirtualUser:CaptureController()
+				ObservationVirtualUser:SetKeyDown('0x65')
+				wait(2)
+				ObservationVirtualUser:SetKeyUp('0x65')
+			end
+		end)
+	end
+end)
+ 
+spawn(function()
+	game:GetService("RunService").Heartbeat:connect(function()
+		pcall(function()
+			if _G.AutoFarmKenHaki then
+				if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+					game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+				end
+			end
+		end)
+	end)
+end)
+ 
+spawn(function()
+	pcall(function()
+		while wait(1) do
+			if _G.AutoFarmKenHaki then
+				pcall(function()
+					if ThreeWorld then
+						if game.Workspace.Enemies:FindFirstChild("Marine Commodore [Lv. 1700]") then
+							if game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel") then
+								repeat wait()
+									totarget(game.Workspace.Enemies:FindFirstChild("Marine Commodore [Lv. 1700]").HumanoidRootPart.CFrame * CFrame.new(3,0,0))
+								until _G.AutoFarmKenHaki == false or not game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel")
+							else
+								repeat wait()
+									totarget(game.Workspace.Enemies:FindFirstChild("Marine Commodore [Lv. 1700]").HumanoidRootPart.CFrame * CFrame.new(10,35,0))
+									if _G.HopFunction then
+										local ts = game:GetService("TeleportService")
+										local p = game:GetService("Players").LocalPlayer
+										ts:Teleport(game.PlaceId, p)
+									end
+								until _G.AutoFarmKenHaki == false or game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel")
+							end
+						else
+							totarget(CFrame.new(2490.0844726563, 190.4232635498, -7160.0502929688))
+						end
+					end
+					if NewWorld then
+						if game.Workspace.Enemies:FindFirstChild("Ship Engineer [Lv. 1275]") then
+							if game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel") then
+								repeat wait()
+									totarget(game.Workspace.Enemies:FindFirstChild("Ship Engineer [Lv. 1275]").HumanoidRootPart.CFrame * CFrame.new(3,0,0))
+								until _G.AutoFarmKenHaki == false or not game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel")
+							else
+								repeat wait()
+									totarget(game.Workspace.Enemies:FindFirstChild("Ship Engineer [Lv. 1275]").HumanoidRootPart.CFrame * CFrame.new(10,15,0))
+									if _G.HopFunction then
+										local ts = game:GetService("TeleportService")
+										local p = game:GetService("Players").LocalPlayer
+										ts:Teleport(game.PlaceId, p)
+									end
+								until _G.AutoFarmKenHaki == false or game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel")
+							end
+						else
+							totarget(CFrame.new(918.558777, 40.0827065, 32766.498))
+						end
+					end
+					if OldWorld then
+						if game.Workspace.Enemies:FindFirstChild("Galley Captain [Lv. 650]") then
+							if game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel") then
+								repeat wait()
+									totarget(game.Workspace.Enemies:FindFirstChild("Galley Captain [Lv. 650]").HumanoidRootPart.CFrame * CFrame.new(3,0,0))
+								until _G.AutoFarmKenHaki == false or not game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel")
+							else
+								repeat wait()
+									totarget(game.Workspace.Enemies:FindFirstChild("Galley Captain [Lv. 650]").HumanoidRootPart.CFrame * CFrame.new(10,15,0))
+									if _G.HopFunction then
+										local ts = game:GetService("TeleportService")
+										local p = game:GetService("Players").LocalPlayer
+										ts:Teleport(game.PlaceId, p)
+									end
+								until _G.AutoFarmKenHaki == false or game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel")
+							end
+						else
+							totarget(CFrame.new(5533.29785, 88.1079102, 4852.3916))
+						end
+					end
+				end)
+			end
+		end
+	end)
+end)
+	page2:Button("Check Observation Haki level",function()
+		RadientPaid:Notification(game.Players.LocalPlayer.VisionRadius.Value,"Observation Haki level","ok")
+	end)
+--------------------------------------------------------------------------------------------------------------------------------------------
 --Mastery
     Tabs.Main:AddParagraph({
         Title = "Mastery Farm",
