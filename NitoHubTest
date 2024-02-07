@@ -2594,6 +2594,7 @@ local posZ = 0
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- Auto Farm Observation
+local ToggleAutoFarmLevel = Tabs.Main:AddToggle("ToggleAutoFarmObservation", {Title = "Auto Farm Observation", Default = false })
 	page2:Label("Auto Farm Observation")
 local ObservationVirtualUser = game:GetService('VirtualUser')
 page2:Toggle("Auto Farm Observation Haki (Ken Haki) [ Hop ]",_G.AutoFarmKenHaki,function(x)
